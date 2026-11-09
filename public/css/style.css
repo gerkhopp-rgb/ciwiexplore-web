@@ -1,0 +1,584 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #ffffff;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    background: white;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #2e9d63;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+.btn-login {
+    padding: 11px 23px;
+
+    background: #2e9d63;
+    color: white !important;
+
+    border-radius: 8px;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.97),
+            rgba(255,255,255,0.65)
+        ),
+        url('/images/ciwidey.jpg');
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.subtitle {
+    color: #2e9d63;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: #666;
+
+    max-width: 570px;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #2e9d63;
+    color: white;
+}
+
+.btn-secondary {
+    border: 1px solid #2e9d63;
+    color: #2e9d63;
+}
+
+
+/* CATEGORY */
+
+.category {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.category h2 {
+    font-size: 32px;
+    margin-bottom: 45px;
+}
+
+.category-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.category-card {
+    padding: 30px 20px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 15px;
+
+    background: white;
+
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.08);
+}
+
+.icon {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    margin-bottom: 10px;
+}
+
+.category-card p {
+    color: #777;
+
+    line-height: 1.5;
+}
+
+
+/* ABOUT */
+
+.about {
+    padding: 90px 8%;
+
+    background: #f5faf7;
+}
+
+.about div {
+    max-width: 700px;
+}
+
+.about h2 {
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.about p {
+    line-height: 1.7;
+
+    color: #666;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 40px 8%;
+
+    background: #1e293b;
+
+    color: white;
+}
+
+footer h3 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin-top: 8px;
+
+    color: #cbd5e1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .category {
+        padding: 60px 5%;
+    }
+
+    .category-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .nav-menu a:not(.btn-login) {
+        display: none;
+    }
+
+    .category-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+}
+/* ========================================
+   CIWIEXPLORE MVP
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7f6;
+    color: #26332d;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 18px 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f6f43;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #1f7a4d;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #17613c;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.page-header {
+    padding: 40px 0 25px;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+    font-size: 32px;
+}
+
+.page-header p {
+    color: #6b7280;
+}
+
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input,
+.search-form select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.destination-card:hover {
+    transform: translateY(-3px);
+}
+
+.destination-image {
+    height: 180px;
+    background: linear-gradient(
+        135deg,
+        #b7d8c5,
+        #6fa886
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+}
+
+.destination-content {
+    padding: 20px;
+}
+
+.destination-content h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.category {
+    display: inline-block;
+    background: #e5f4eb;
+    color: #1f6f43;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.location {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+    color: #1f7a4d;
+    margin: 12px 0;
+}
+
+.detail-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 35px auto;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.detail-hero {
+    height: 280px;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #8fc4a5,
+        #347653
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 70px;
+    margin-bottom: 25px;
+}
+
+.rating-box {
+    background: #f0f8f3;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.rating-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1f7a4d;
+}
+
+.review-form {
+    background: #f9fafb;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+.review-form select,
+.review-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.review-form textarea {
+    resize: vertical;
+}
+
+.review-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.review-user {
+    font-weight: bold;
+}
+
+.review-rating {
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+.success {
+    background: #dcfce7;
+    color: #166534;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+
+    .navbar-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
