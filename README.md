@@ -1,59 +1,211 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CiwiExplore – Sistem Informasi Pariwisata Ciwidey dan Rancabali
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+CiwiExplore merupakan aplikasi berbasis web yang dikembangkan untuk membantu masyarakat memperoleh informasi mengenai destinasi wisata di wilayah Ciwidey dan Rancabali. Aplikasi ini menyediakan informasi destinasi wisata serta fasilitas pengelolaan data bagi pengelola dan administrator.
 
-## About Laravel
+## 1. Tujuan Proyek
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Proyek ini bertujuan untuk:
+- Mempermudah pengunjung memperoleh informasi destinasi wisata.
+- Menyediakan informasi destinasi wisata secara terstruktur.
+- Membantu pengelola dalam mengelola informasi destinasi.
+- Memudahkan administrator mengelola pengguna dan moderasi review.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 2. Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Pengunjung
+- Melihat daftar destinasi wisata.
+- Melihat detail informasi destinasi.
+- Menjelajahi daftar destinasi menggunakan pagination.
+- Mengakses fitur yang tersedia sesuai hak akses pengunjung.
 
-## Learning Laravel
+### Pengelola
+- Mengakses dashboard pengelola.
+- Melihat data destinasi yang dikelola.
+- Menambahkan destinasi.
+- Mengubah informasi destinasi.
+- Menghapus destinasi sesuai hak akses.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Administrator
+- Mengakses dashboard admin.
+- Mengelola data pengguna.
+- Memeriksa dan memoderasi review.
+- Memantau informasi pada dashboard.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 3. Teknologi yang Digunakan
 
-## Laravel Sponsors
+| Teknologi | Kegunaan |
+|---|---|
+| Laravel | Framework pengembangan aplikasi |
+| PHP | Bahasa pemrograman backend |
+| MySQL | Sistem manajemen basis data |
+| HTML | Struktur halaman web |
+| CSS | Pengaturan tampilan aplikasi |
+| JavaScript | Interaksi pada halaman web |
+| XAMPP | Lingkungan server lokal |
+| Git dan GitHub | Pengelolaan versi dan repositori kode |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 4. Persyaratan Sistem
 
-### Premium Partners
+Sebelum menjalankan proyek, pastikan perangkat telah memiliki:
+- PHP dengan versi yang kompatibel dengan proyek Laravel.
+- Composer.
+- MySQL atau XAMPP.
+- Node.js dan NPM apabila diperlukan oleh proses build frontend.
+- Git.
+- Browser modern.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 5. Instalasi dan Menjalankan Proyek
 
-## Contributing
+### Langkah 1 – Clone Repository
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+git clone URL_REPOSITORY_GITHUB
+```
 
-## Code of Conduct
+Ganti `URL_REPOSITORY_GITHUB` dengan alamat repository CiwiExplore.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Langkah 2 – Masuk ke Folder Proyek
 
-## Security Vulnerabilities
+```bash
+cd ciwiexplore-web
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Langkah 3 – Instal Dependensi PHP
 
-## License
+```bash
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Langkah 4 – Membuat File Environment
+
+```bash
+cp .env.example .env
+```
+
+Pada Windows, file `.env.example` juga dapat disalin secara manual menjadi `.env`.
+
+### Langkah 5 – Membuat Application Key
+
+```bash
+php artisan key:generate
+```
+
+### Langkah 6 – Mengatur Database
+
+Buat database MySQL dengan nama:
+
+```text
+ciwiexplore_db
+```
+
+Kemudian sesuaikan konfigurasi database pada file `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ciwiexplore_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Sesuaikan username dan password dengan konfigurasi MySQL pada perangkat masing-masing.
+
+### Langkah 7 – Menjalankan Migration
+
+```bash
+php artisan migrate
+```
+
+Jika repository menyediakan seeder yang memang diperlukan, jalankan seeder sesuai petunjuk proyek:
+
+```bash
+php artisan db:seed
+```
+
+Jangan menjalankan perintah tersebut pada database yang sudah berisi data penting tanpa memahami dampaknya.
+
+### Langkah 8 – Menjalankan Aplikasi
+
+```bash
+php artisan serve
+```
+
+Buka alamat berikut pada browser:
+
+```text
+http://127.0.0.1:8000
+```
+
+## 6. Struktur Folder
+
+Struktur folder utama proyek Laravel:
+
+```text
+ciwiexplore-web/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   └── Middleware/
+│   └── Models/
+├── bootstrap/
+├── config/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── public/
+│   ├── css/
+│   └── images/
+├── resources/
+│   └── views/
+├── routes/
+│   └── web.php
+├── docs/
+├── .env.example
+├── composer.json
+└── README.md
+```
+
+## 7. Hak Akses Pengguna
+
+CiwiExplore memiliki tiga role utama:
+- `pengunjung`
+- `pengelola`
+- `admin`
+
+Setiap role memiliki hak akses yang berbeda. Sistem autentikasi dan middleware digunakan untuk membatasi akses halaman berdasarkan role pengguna.
+
+## 8. Dokumentasi
+
+Dokumentasi proyek disimpan pada folder `docs/`, yang mencakup:
+- Bug Log.
+- Testing Report.
+- Security Testing.
+- Regression Testing.
+- User Manual.
+- Technical Documentation.
+- Deployment Guide.
+- Materi Presentasi.
+
+## 9. Status Proyek
+
+CiwiExplore berada pada tahap Sprint 4 – Finalization & Release Candidate.
+
+Tahap ini berfokus pada:
+- Perbaikan bug.
+- Pengujian keamanan.
+- Pengujian regresi.
+- Dokumentasi.
+- Persiapan deployment.
+- Persiapan demonstrasi aplikasi.
+
+## 10. Tim Pengembang
+
+**Proyek:** CiwiExplore  
+**Anggota Tim:**
+- Galih Pratama
+- Andri Surya Permana
+
+---
+
+**Catatan:** README ini perlu disesuaikan kembali apabila terdapat perubahan fitur, konfigurasi, repository, atau prosedur instalasi.
