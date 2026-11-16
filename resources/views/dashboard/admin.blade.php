@@ -9,14 +9,11 @@
     <a href="{{ route('destinasi.index') }}">▦ Kelola Destinasi</a>
     <a href="{{ route('destinasi.create') }}">＋ Tambah Testinasi</a>
     <a href="{{ route('admin.users.index') }}">◉ Manajemen Pengguna</a>
-    <a href="{{ route('admin.reviews.index') }}">▣ Moderasi Foto</a>
-    <a href="{{ route('admin.reviews.index') }}">▤ Laporan</a>
-    <a href="{{ route('destinasi.index') }}">⚙ Pengaturan</a>
-     <a href="{{ route('profile.show') }}">
+    <a href="{{ route('profile.show') }}">
     ◉ Profil Saya
 </a>
 </nav>
-<aside class="sidebar"><a class="side-active" href="{{ route('dashboard.admin') }}">▣ Dashboard</a><a href="{{ route('admin.reviews.index') }}">★ Moderasi Review</a><a href="{{ route('destinasi.index') }}">▦ Kelola Destinasi</a><a href="{{ route('destinasi.create') }}">＋ Tambah Testinasi</a><a href="{{ route('admin.users.index') }}">◉ Manajemen Pengguna</a><a href="{{ route('admin.reviews.index') }}">▣ Moderasi Foto</a><a href="{{ route('admin.reviews.index') }}">▤ Laporan</a><a href="{{ route('destinasi.index') }}">⚙ Pengaturan</a> <a href="{{ route('profile.show') }}">
+<aside class="sidebar"><a class="side-active" href="{{ route('dashboard.admin') }}">▣ Dashboard</a><a href="{{ route('admin.reviews.index') }}">★ Moderasi Review</a><a href="{{ route('destinasi.index') }}">▦ Kelola Destinasi</a><a href="{{ route('destinasi.create') }}">＋ Tambah Testinasi</a><a href="{{ route('admin.users.index') }}">◉ Manajemen Pengguna</a><a href="{{ route('admin.reviews.index') }}">
     ◉ Profil Saya
 </a></aside>
 <main class="dash-main"><p class="eyebrow dark">Dashboard Admin</p><h1>Selamat datang, {{ auth()->user()->name }}</h1>

@@ -7,7 +7,7 @@
 <body class="auth-page">
 <div class="auth-card">
     <a class="brand auth-brand" href="{{ url('/') }}">Ciwi<span>Explore</span></a>
-    <h1>Login</h1>
+    <h1></h1>
     <p class="muted">Masuk ke akun anda Untuk melanjutkan</p>
 
     @if($errors->any())

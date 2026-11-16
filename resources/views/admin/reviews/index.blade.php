@@ -7,6 +7,6 @@
 <div class="moderation-list">
 @forelse($reviews as $review)
 <article class="moderation-card"><div><div class="review-head"><div class="avatar">{{ strtoupper(substr($review->user->name ?? 'U',0,1)) }}</div><div><strong>{{ $review->user->name ?? 'Pengguna' }}</strong><span>{{ $review->created_at->diffForHumans() }}</span></div></div><h3>{{ $review->destinasi->nama_destinasi ?? '-' }}</h3><div class="review-stars">{{ str_repeat('★',$review->rating) }}{{ str_repeat('☆',5-$review->rating) }}</div><p>{{ $review->komentar }}</p><span class="status {{ $review->status }}">{{ ucfirst($review->status) }}</span></div>
-<div class="moderation-actions">@if($review->status !== 'approved')<form method="POST" action="{{ route('admin.reviews.approve',$review) }}">@csrf @method('PATCH')<button class="btn btn-primary">Setujui</button></form>@endif @if($review->status !== 'rejected')<form method="POST" action="{{ route('admin.reviews.reject',$review) }}">@csrf @method('PATCH')<button class="btn btn-danger">Tolak</button></form>@endif</div></article>
+<div class="moderation-actions">@if($review->status !== 'approved')<form method="POST" action="{{ route('admin.reviews.approve',$review) }}">@csrf @method('PATCH')<button class="btn btn-primary">Setujui</button></form>@endif @if($review->status !== 'rejected')<form method="POST" action="{{ route('admin.reviews.reject',$review) }}">php @method('PATCH')<button class="btn btn-danger">Tolak</button></form>@endif</div></article>
 @empty<div class="empty-state">Belum ada review.</div>@endforelse
 </div></main></body></html>

@@ -208,4 +208,3 @@ Tahap ini berfokus pada:
 
 ---
 
-**Catatan:** README ini perlu disesuaikan kembali apabila terdapat perubahan fitur, konfigurasi, repository, atau prosedur instalasi.
