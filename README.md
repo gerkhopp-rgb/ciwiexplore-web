@@ -12,7 +12,7 @@ Proyek ini bertujuan untuk:
 
 ## 2. Fitur Utama
 
-### Pengunjung
+### pengunjung
 - Melihat daftar destinasi wisata.
 - Melihat detail informasi destinasi.
 - Menjelajahi daftar destinasi menggunakan pagination.
