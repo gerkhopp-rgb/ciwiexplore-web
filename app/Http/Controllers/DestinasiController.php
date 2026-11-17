@@ -16,39 +16,47 @@ class DestinasiController extends Controller
     | INDEX
     |--------------------------------------------------------------------------
     */
+
     public function index(Request $request)
-    {
-        $query = Destinasi::with([
+{
+    $query = Destinasi::with([
             'kategori',
             'pengelola',
-            'reviews'
-        ]);
+        ])
+        ->withAvg('reviews', 'rating')  
+        ->withCount('reviews');        
 
-        if ($request->filled('search')) {
-            $query->where(
-                'nama_destinasi',
-                'like',
-                '%' . $request->search . '%'
-            );
-        }
-
-        if ($request->filled('kategori')) {
-            $query->where('id_kategori', $request->kategori);
-        }
-
-        $destinasi = $query
-            ->latest('id_destinasi')
-            ->paginate(9)
-            ->withQueryString();
-
-        $kategori = Kategori::orderBy('nama_kategori')->get();
-
-        return view(
-            'destinasi.index',
-            compact('destinasi', 'kategori')
+    if ($request->filled('search')) {
+        $query->where(
+            'nama_destinasi',
+            'like',
+            '%' . $request->search . '%'
         );
     }
 
+    if ($request->filled('kategori')) {
+        $query->where('id_kategori', $request->kategori);
+    }
+
+    // PENGURUTAN
+    if ($request->urutkan === 'rating') {
+        $query->orderByDesc('reviews_avg_rating')
+              ->orderByDesc('reviews_count');
+    } else {
+        $query->latest('id_destinasi');
+    }
+
+    $destinasi = $query
+        ->paginate(9)
+        ->withQueryString();
+
+    $kategori = Kategori::orderBy('nama_kategori')->get();
+
+    return view(
+        'destinasi.index',
+        compact('destinasi', 'kategori')
+    );
+}
     /*
     |--------------------------------------------------------------------------
     | CREATE
