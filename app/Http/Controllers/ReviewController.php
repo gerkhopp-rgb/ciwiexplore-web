@@ -20,10 +20,19 @@ class ReviewController extends Controller
 
         $validated = $request->validate([
             'rating' => 'required|integer|min:1|max:5',
-            'komentar' => 'required|string|max:1000',
+            'komentar' => 'required|string|min:10|max:1000',
             'review_photos' => 'nullable|array|max:3',
             'review_photos.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
-        ]);
+        ], [
+    'rating.required'   => 'Rating wajib dipilih.',
+    'rating.integer'    => 'Rating harus berupa angka bulat.',
+    'rating.min'        => 'Rating minimal 1.',
+    'rating.max'        => 'Rating maksimal 5.',
+    'komentar.required' => 'Komentar ulasan wajib diisi.',
+    'komentar.min'      => 'Komentar ulasan minimal harus terdiri dari 10 karakter.',
+]);
+
+        
 
         // SENTIMENT
         $rating = $validated['rating'];

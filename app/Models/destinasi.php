@@ -46,10 +46,6 @@ class Destinasi extends Model
     }
     public function reviews(): HasMany
 {
-    return $this->hasMany(
-        Review::class,
-        'id_destinasi',
-        'id_destinasi'
-    );
+    return $this->hasMany(Review::class, 'id_destinasi', 'id_destinasi');
 }
 }

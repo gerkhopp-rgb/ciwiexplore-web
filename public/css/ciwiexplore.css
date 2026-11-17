@@ -226,7 +226,7 @@ button,input,select,textarea {
 }
 .badge {
     display:inline-block;
-    background:#e5f2e7;
+    background:#e7e5f2;
     color:#3f7951;
     border-radius:999px;
     padding:5px 10px;
@@ -2437,5 +2437,11 @@ img {
     margin: 0;
     color: #78847d;
     font-size: 13px;
+    
+    
+.text-danger {
+    color: red;
+    font-size: 13px;
+}
     line-height: 1.6;
 }

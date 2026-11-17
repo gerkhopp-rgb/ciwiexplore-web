@@ -727,18 +727,20 @@
 
                     <!-- REVIEW -->
 
-                    <label>
-                        Tulisan review anda...
-                    </label>
+                  <label for="komentar">Tulisan review anda...</label>
 
-
-                    <textarea
-                        name="komentar"
-                        maxlength="1000"
-                        rows="5"
-                        placeholder="Ceritakan pengalamanmu..."
-                        required
-                    ></textarea>
+                  <textarea name="komentar" id="komentar" rows="5" minlength="10" maxlength="1000" required
+                  placeholder="Ceritakan pengalamanmu...">{{ old('komentar') }}</textarea>
+                  @error('komentar')
+                  <small class="text-danger">{{ $message }}</small>
+                  @enderror
+                  
+                  @if($errors->any())
+                  <script>
+                  document.getElementById('review-form')?.scrollIntoView({ behavior: 'smooth' });
+                  </script>
+                  @endif
+                    
 
 
 
