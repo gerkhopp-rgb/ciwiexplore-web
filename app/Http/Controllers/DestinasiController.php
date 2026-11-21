@@ -17,15 +17,17 @@ class DestinasiController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function index(Request $request)
-{
-    $query = Destinasi::with([
-            'kategori',
-            'pengelola',
-        ])
-        ->withAvg('reviews', 'rating')  
-        ->withCount('reviews');        
 
+public function index(Request $request)
+{
+    // Mengambil data destinasi beserta relasinya
+    $query = Destinasi::with([
+        'kategori',
+        'pengelola',
+        'reviews'
+    ]);
+
+    // Pencarian berdasarkan nama destinasi
     if ($request->filled('search')) {
         $query->where(
             'nama_destinasi',
@@ -34,29 +36,53 @@ class DestinasiController extends Controller
         );
     }
 
+    // Filter berdasarkan kategori
     if ($request->filled('kategori')) {
         $query->where('id_kategori', $request->kategori);
     }
 
-    // PENGURUTAN
-    if ($request->urutkan === 'rating') {
-        $query->orderByDesc('reviews_avg_rating')
-              ->orderByDesc('reviews_count');
-    } else {
-        $query->latest('id_destinasi');
+    // Validasi pilihan pengurutan
+    $sort = $request->input('sort', 'terbaru');
+
+    if (!in_array($sort, ['terbaru', 'rating'])) {
+        $sort = 'terbaru';
     }
 
+    // Pengurutan berdasarkan pilihan pengguna
+    $sort = $request->get('urutkan'); // nama harus sama dengan name di dropdown
+
+$query = Destinasi::with(['kategori', 'pengelola'])
+    ->withAvg(
+        ['reviews as rating_rata_rata' => fn ($q) => $q->where('status', 'approved')],
+        'rating'
+    )
+    ->withCount(
+        ['reviews as jumlah_review' => fn ($q) => $q->where('status', 'approved')]
+    );
+
+// ... search dan kategori tetap seperti sebelumnya ...
+
+if ($sort === 'rating') {
+    $query->orderByDesc('rating_rata_rata')
+          ->orderByDesc('jumlah_review');
+} else {
+    $query->latest('id_destinasi');
+}
+    // Mengambil data dengan pagination
     $destinasi = $query
         ->paginate(9)
         ->withQueryString();
 
+    // Mengambil seluruh kategori
     $kategori = Kategori::orderBy('nama_kategori')->get();
 
     return view(
         'destinasi.index',
-        compact('destinasi', 'kategori')
+        compact('destinasi', 'kategori', 'sort')
     );
 }
+
+
     /*
     |--------------------------------------------------------------------------
     | CREATE
@@ -165,6 +191,10 @@ class DestinasiController extends Controller
     */
     public function show(Destinasi $destinasi)
     {
+        $sudahReviewMingguIni = auth()->check() && \App\Models\Review::where('user_id', auth()->id())
+        ->where('created_at', '>=', now()->subWeek())
+        ->exists();
+
         $destinasi->load([
             'kategori',
             'pengelola',

@@ -18,6 +18,21 @@ class ReviewController extends Controller
             abort(403, 'Hanya pengunjung yang dapat mengirim review.');
         }
 
+        // BATAS REVIEW: 1 kali per 7 hari
+$reviewTerakhir = Review::where('user_id', Auth::id())
+    ->where('created_at', '>=', now()->subWeek())
+    ->latest()
+    ->first();
+
+if ($reviewTerakhir) {
+    $bisaLagi = $reviewTerakhir->created_at->addWeek();
+
+    return back()
+        ->withInput()
+        ->with('error', 'Kamu sudah mengirim review minggu ini. Bisa kirim lagi pada '
+            . $bisaLagi->translatedFormat('d F Y H:i') . '.');
+}
+
         $validated = $request->validate([
             'rating' => 'required|integer|min:1|max:5',
             'komentar' => 'required|string|min:10|max:1000',
@@ -54,6 +69,12 @@ class ReviewController extends Controller
             'status' => 'pending',
             'sentiment' => $sentiment,
         ]);
+
+        \App\Models\ActivityLog::create([
+    'user_id'      => Auth::id(),
+    'aksi'         => 'review',
+    'id_destinasi' => $destinasi->id_destinasi,
+]);
 
         // SIMPAN FOTO REVIEW
         if ($request->hasFile('review_photos')) {
