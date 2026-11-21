@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminReviewController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserManagementController;
-
+use App\Http\Controllers\DashboardController; 
 /*
 |--------------------------------------------------------------------------
 | HALAMAN UTAMA
@@ -89,26 +89,20 @@ Route::middleware('auth')->group(function () {
     Route::put('/profil/password', [ProfileController::class, 'updatePassword'])
         ->name('profile.password');
 
-  // Dashboard Pengunjung
-Route::get('/dashboard/pengunjung', function () {
-    return view('dashboard.pengunjung');
-})
-->middleware(['auth', 'role:pengunjung'])  
-->name('dashboard.pengunjung');
+        // Dashboard Pengunjung
+Route::get('/dashboard/pengunjung', [DashboardController::class, 'pengunjung'])
+    ->middleware('role:pengunjung')
+    ->name('dashboard.pengunjung');
 
 // Dashboard Pengelola
-Route::get('/dashboard/pengelola', function () {
-    return view('dashboard.pengelola');
-})
-->middleware(['auth', 'role:pengelola'])  
-->name('dashboard.pengelola');
+Route::get('/dashboard/pengelola', [DashboardController::class, 'pengelola'])
+    ->middleware('role:pengelola')
+    ->name('dashboard.pengelola');
 
 // Dashboard Admin
-Route::get('/dashboard/admin', function () {
-    return view('dashboard.admin');
-})
-->middleware(['auth', 'role:admin']) 
-->name('dashboard.admin');
+Route::get('/dashboard/admin', [DashboardController::class, 'admin'])
+    ->middleware('role:admin')
+    ->name('dashboard.admin');
 
 
     /*
