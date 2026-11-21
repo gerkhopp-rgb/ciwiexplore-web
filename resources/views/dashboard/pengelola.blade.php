@@ -18,27 +18,50 @@
 <div class="popular-row"><div><strong>{{ $d->nama_destinasi }}</strong><span>{{ $d->alamat }}</span></div><b>★ {{ $avg }} ({{ $r->count() }})</b><a href="{{ route('destinasi.show',$d) }}">Lihat Detail</a></div>
 @empty <div class="empty-state">Belum ada destinasi.</div>@endforelse
 </section>
+<section class="review-section">
+    <h2>Aktivitas 7 Hari Terakhir</h2>
 
-<section class="dashboard-panel">
+    <table>
+        <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>Login</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($aktivitas as $a)
+                <tr>
+                    <td>{{ $a['label'] }}</td>
+                    <td>{{ $a['login'] }}</td>
+                    <td>{{ $a['review'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <th>{{ $aktivitas->sum('login') }}</th>
+                <th>{{ $aktivitas->sum('review') }}</th>
+            </tr>
+        </tfoot>
+    </table>
 
-    <h3>Statistik Pengunjung</h3>
+    <h3>Aktivitas Terbaru</h3>
 
-    <div class="activity-empty-state">
-
-        <div class="activity-empty-icon">
-            <span>▥</span>
-        </div>
-
-        <h4>Data kunjungan belum tersedia</h4>
-
+    @forelse($aktivitasTerbaru as $log)
         <p>
-            Belum ada data kunjungan destinasi yang dapat
-            ditampilkan saat ini.
+            <strong>{{ $log->user->name ?? 'Pengguna' }}</strong>
+            @if($log->aksi === 'login')
+                login ke sistem
+            @else
+                mereview <em>{{ $log->destinasi->nama_destinasi ?? '-' }}</em>
+            @endif
+            • {{ $log->created_at->diffForHumans() }}
         </p>
-
-    </div>
-
+    @empty
+        <p class="muted">Belum ada aktivitas minggu ini.</p>
+    @endforelse
 </section>
-
 </div>
 </main></div></body></html>

@@ -2437,11 +2437,166 @@ img {
     margin: 0;
     color: #78847d;
     font-size: 13px;
+    line-height: 1.6;
+}
     
     
 .text-danger {
     color: red;
     font-size: 13px;
+
 }
-    line-height: 1.6;
+
+/* =========================
+   AKTIVITAS PENGGUNA
+========================= */
+
+.text-danger {
+    color: #a03939;
+    font-size: 13px;
+}
+
+.activity-panel {
+    min-width: 0;
+}
+
+/* Kartu ringkasan */
+.activity-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.activity-stat {
+    background: #f1f6f2;
+    border: 1px solid #e1e9e2;
+    border-radius: 12px;
+    padding: 15px 17px;
+}
+
+.activity-stat span {
+    display: block;
+    font-size: 12px;
+    color: #77827b;
+}
+
+.activity-stat strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 28px;
+    line-height: 1;
+    color: #2e6944;
+}
+
+/* Tabel */
+.activity-table-wrap {
+    overflow-x: auto;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.activity-table th,
+.activity-table td {
+    padding: 11px 12px;
+    text-align: left;
+    border-top: 1px solid #edf0ed;
+}
+
+.activity-table thead th {
+    background: #f1f6f2;
+    border-top: 0;
+    color: #55635c;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.activity-table th:not(:first-child),
+.activity-table td:not(:first-child) {
+    text-align: center;
+}
+
+.activity-table tbody tr:hover {
+    background: #f9fbf9;
+}
+
+.activity-table tfoot th {
+    background: #e9f3eb;
+    color: #39724d;
+}
+
+/* Feed aktivitas terbaru */
+.activity-subtitle {
+    margin: 24px 0 12px;
+    font-size: 15px;
+    color: #1f2d27;
+}
+
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid #edf0ed;
+    border-radius: 10px;
+    background: #fbfdfb;
+    font-size: 13px;
+    color: #55635c;
+}
+
+.activity-item strong {
+    color: #1f2d27;
+}
+
+.activity-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.activity-icon.login {
+    background: #e9f3eb;
+    color: #39724d;
+}
+
+.activity-icon.review {
+    background: #fdf3d8;
+    color: #d89a1f;
+}
+
+.activity-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-item small {
+    color: #849087;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+    .activity-item {
+        flex-wrap: wrap;
+    }
+
+    .activity-item small {
+        width: 100%;
+        padding-left: 46px;
+    }
 }

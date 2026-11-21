@@ -98,7 +98,13 @@
          SEARCH & FILTER
     ========================== -->
 
-    <form method="GET" class="filter-bar">
+
+     <form method="GET" class="filter-bar">
+
+        <select name="urutkan" onchange="this.form.submit()">
+    <option value="terbaru" @selected(request('urutkan') !== 'rating')>Urutkan: Terbaru</option>
+    <option value="rating" @selected(request('urutkan') === 'rating')>Urutkan: Rating Tertinggi</option>
+</select>
 
         <input
             type="text"
@@ -136,6 +142,8 @@
     </form>
 
 
+
+
     <!-- =========================
          PESAN SUCCESS
     ========================== -->
@@ -164,16 +172,8 @@
                 | HITUNG RATING
                 |--------------------------------------------------------------------------
                 */
-
-                $approved = $item->reviews
-                    ->where('status', 'approved');
-
-                $avg = $approved->count()
-                    ? number_format(
-                        $approved->avg('rating'),
-                        1
-                    )
-                    : '0.0';
+                $avg   = number_format($item->rating_rata_rata ?? 0, 1);
+$total = $item->jumlah_review ?? 0;
 
 
                 /*
@@ -277,20 +277,11 @@
                     <!-- RATING -->
 
                     <div class="rating">
-
-                        ⭐
-
-                        <b>
-                            {{ $avg }}
-                        </b>
-
-                        <span>
-                            ({{ $approved->count() }} review)
-                        </span>
-
+                        <b>★ {{ $avg }}</b>
+                        <span>({{ $total }})</span>
                     </div>
-
-
+                    
+                    
                     <!-- HARGA -->
 
                     <p class="price">
